@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sillon</title>
+  <meta name="description" content="Sillon — mes sons, depuis mon serveur.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="importmap">{ "imports": { "gsap": "/vendor/gsap/index.js", "three": "/vendor/three/three.module.js" } }</script>
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="top">
+    <a href="/" class="logo">SILLON<span>©</span></a>
+  </header>
+
+  <main class="now" id="now">
+    <div class="now__head"><img class="now__cover" id="nCover" alt="" hidden><p class="now__meta mono"><span class="sq"></span><span id="nMeta">Aucun son en lecture</span></p></div>
+    <h1 class="now__title" id="nTitle"><span class="line"><span>Sillon</span></span></h1>
+  </main>
+
+  <footer class="deck">
+    <div class="deck__progress" id="progress" role="slider" tabindex="0" aria-label="Position dans le morceau" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="deck__fill" id="fill"></span><span class="deck__hover" id="hover"></span>
+    </div>
+    <div class="deck__row">
+      <span class="mono deck__time"><span id="tCur">00:00</span> / <span id="tDur">00:00</span></span>
+      <nav class="deck__ctrl mono" aria-label="Lecture">
+        <button id="shuffle" aria-pressed="false">Aléa</button>
+        <button id="prev">Préc</button>
+        <button id="play" class="deck__play">Lecture</button>
+        <button id="next">Suiv</button>
+        <button id="repeat" aria-pressed="false">Boucle</button>
+      </nav>
+      <button class="mono link deck__index" id="indexBtn" aria-expanded="false" aria-controls="index">Index <sup id="count">0</sup></button>
+    </div>
+  </footer>
+
+  <section class="index" id="index" aria-label="Tous les sons" aria-hidden="true">
+    <div class="index__head">
+      <h2 class="index__title">Tous les sons</h2>
+      <p class="mono muted">Glisse des fichiers n’importe où pour les envoyer au serveur</p>
+    </div>
+    <ol class="index__list" id="list"></ol>
+  </section>
+
+  <div class="drop" id="drop" aria-hidden="true"><p>Lâche&nbsp;tes sons</p></div>
+  <div class="toasts mono" id="toasts" role="status" aria-live="polite"></div>
+  <input type="file" id="file" accept="audio/*,.flac,.m4a,.opus" multiple hidden>
+</body>
+</html>

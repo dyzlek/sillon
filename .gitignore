@@ -1,0 +1,14 @@
+# Dépendances
+node_modules/
+
+# Ta musique et tes pochettes restent sur ta machine / ton serveur
+music/*
+!music/.gitkeep
+
+# Base de données (bibliothèque, écoutes)
+data/
+
+# Divers
+*.part
+.claude/
+.env
